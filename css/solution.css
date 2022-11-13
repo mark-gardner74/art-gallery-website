@@ -9,7 +9,7 @@
         padding-left: 1rem;
         padding-right: 1rem;
         height: 105em;
-        grid-template-columns: repeat( 1, 1fr );
+        grid-template-columns: 343px;
         grid-template-rows: 2fr repeat( 4, 1fr );
         justify-content: center;
         align-items: center;
@@ -20,7 +20,6 @@
             "img-2"
             "img-3"
             "cbi";
-
     }
 
     h2 {
@@ -38,6 +37,8 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+        width: 100%;
+        height: 100%;
     }
 
     .hero-image {
@@ -52,38 +53,31 @@
     #image-grid-1 {
 
         background-image: url( '../assets/mobile/image-grid-1.jpg' );
-        width: 343px;
-        height: 320px;
         grid-area: img-1;
     }
 
     #image-grid-2 {
 
         background-image: url( '../assets/mobile/image-grid-2.jpg' );
-        width: 343px;
-        height: 480px;
         grid-area: img-2;
     }
 
     #image-grid-3 {
 
         background-image: url( '../assets/mobile/image-grid-3.jpg' );
-        width: 343px;
-        height: 200px;
         grid-area: img-3;
     }
 
     #day-at-gallery {
-        width: 100%;
         grid-area: dag;
     }
 
     #come-be-inspired {
-        width: 100%;
         grid-area: cbi;
         background-color: var( --almost-black );
         color: white;
         padding: 2rem;
+        margin-bottom: 5rem;
     }
 
     .desktop-background {
@@ -93,7 +87,37 @@
         height: 0;
     }
 
+/*  Footer stuff    */
+
+    footer {
+        min-height: 10rem;
+        padding: 3rem 2rem;
+    }
+
+    .modern-header {
+        color: white;
+    }
+
+    .go-uppercase {
+        text-transform: uppercase;
+    }
+
+    .footer-main-body {
+        color: white;
+        line-height: 2rem;
+        font-weight: 500;
+    }
+
+
     @media screen and ( min-width: 768px ) {
+
+        :root {
+            --grid-column-one: 41%;
+            --grid-column-two: 18%;
+            --grid-row-one: 55%;
+            --grid-row-two: 45%;
+            --grid-width: 43.63rem;
+        }
 
         .sizing-of-elements {
             width: var( --break-width-tablet );
@@ -104,10 +128,19 @@
             flex-direction: row !important;
         }
 
-        .background-constants {
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+        main {
+            margin: 0 auto;
+            align-self: center;
+            grid-template-columns: var( --grid-column-one ) var( --grid-column-two ) var( --grid-column-one );
+            grid-template-rows: var( --grid-row-one ) var( --grid-row-two ) auto;
+            grid-template-areas:
+            "dag img-1 img-1"
+            "img-2 img-2 img-3"
+            "img-2 img-2 cbi";
+            gap: 1.5rem;
+            width: var( --grid-width );
+            min-height: 80vh;
+            border: 1px solid red;
         }
 
         .hero-image {
@@ -128,38 +161,21 @@
 
 /*  Adjust for Tablet   */
 
-        main {
-            grid-template-columns: 280px 118px 280px;
-            grid-template-rows: 400px 313px auto;
-            grid-template-areas:
-            "dag img-1 img-1"
-            "img-2 img-2 img-3"
-            "img-2 img-2 cbi";
-            gap: .75rem;
-            height: 75em;
-            border: 1px solid red;
-        }
-
         #image-grid-1 {
-            background-image: url( '../assets/tablet/image-grid-1.jpg' );
-            width: 398px;
-            height: 400px;
+            background-image: url( '../assets/tablet/image-grid-1@2x.jpg' );
+            background-position: right;
             grid-area: img-1;
-            background-size: cover;
         }
 
         #image-grid-2 {
             background-image: url( '../assets/tablet/image-grid-2.jpg' );
-            width: 398px;
-            height: 720px;
+            background-position: top;
             grid-area: img-2;
         }
 
         #image-grid-3 {
-
             background-image: url( '../assets/tablet/image-grid-3.jpg' );
-            width: 280px;
-            height: 313px;
+            background-position: top;
             grid-area: img-3;
         }
 
