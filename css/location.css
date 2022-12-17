@@ -1,0 +1,89 @@
+
+    body {
+        min-height: 90vh;
+    }
+
+    header {
+        position: relative;
+        background-image: url( "../assets/mobile/image-map.png" );
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 40vh;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        background-color: var( --almost-black );
+        color: white;
+        min-height: 30vh;
+        padding: 2rem 1rem;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        background-color: var( --gold );
+        color: var( --almost-black );
+        min-height: 20vh;
+        padding: 2rem 1rem;
+    }
+
+    #mid-section-address > span, #mid-section-address > p {
+        line-height: 1.4rem;
+    }
+
+    .button-one {
+        position: sticky;
+        top: 0;
+    }
+
+    .h1-additional {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+    }
+
+    .h2-additional {
+        font-size: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+    }
+
+    .add-buffer {
+        margin-bottom: 2rem;
+    }
+
+    .flex-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 2rem;
+    }
+
+    .change-colour {
+        fill: #000;
+    }
+
+    /*
+    .fix-to-top-left {
+        position: fixed;
+    }
+    */
+
+
+
+    /*
+    @media screen and ( min-width: 768px ) {
+
+        .sizing-of-elements {
+            min-width: var( --break-width-tablet );
+            border: 1px solid green;
+        }
+
+    }
+    */

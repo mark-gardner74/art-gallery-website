@@ -5,13 +5,12 @@
     }
 
     main {
+        margin: 2rem auto !important;
         display: grid;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        height: 105em;
-        grid-template-columns: 343px;
-        grid-template-rows: 2fr repeat( 4, 1fr );
-        justify-content: center;
+        min-height: 105vh;
+        grid-template-columns: var( --break-width-small );
+        grid-template-rows: 320px 223px 480px 200px 293px;
+        justify-content: space-between;
         align-items: center;
         row-gap: 2rem;
         grid-template-areas:
@@ -48,6 +47,11 @@
         height: 15rem;
     }
 
+    .change-colour {
+        fill: #FFF;
+        color: white;
+    }
+
 /*  IMAGES  */
 
     #image-grid-1 {
@@ -77,7 +81,6 @@
         background-color: var( --almost-black );
         color: white;
         padding: 2rem;
-        margin-bottom: 5rem;
     }
 
     .desktop-background {
@@ -108,19 +111,23 @@
         font-weight: 500;
     }
 
-
     @media screen and ( min-width: 768px ) {
 
         :root {
-            --grid-column-one: 41%;
-            --grid-column-two: 18%;
-            --grid-row-one: 55%;
-            --grid-row-two: 45%;
-            --grid-width: 43.63rem;
+            --grid-column-one: auto;
+            --grid-column-two: 19%;
+            --grid-column-three: 38%;
+            --grid-row-one: 400px;
+            --grid-row-two: 313px;
+            --grid-row-three: 396px;
+            --grid-width: 720px;
+
+            --img-text-width: 280px;
+            --main-image-width: 398px;
         }
 
         .sizing-of-elements {
-            width: var( --break-width-tablet );
+            min-width: var( --break-width-tablet );
         }
 
         header {
@@ -129,18 +136,18 @@
         }
 
         main {
-            margin: 0 auto;
+            margin: 3rem auto !important;
             align-self: center;
+            align-items: flex-start;
             grid-template-columns: var( --grid-column-one ) var( --grid-column-two ) var( --grid-column-one );
-            grid-template-rows: var( --grid-row-one ) var( --grid-row-two ) auto;
+            grid-template-rows: var( --grid-row-one ) var( --grid-row-two ) var( --grid-row-three ) ;
             grid-template-areas:
             "dag img-1 img-1"
             "img-2 img-2 img-3"
             "img-2 img-2 cbi";
-            gap: 1.5rem;
+            gap: 0.5rem;
             width: var( --grid-width );
-            min-height: 80vh;
-            border: 1px solid red;
+            min-height: 90vh;
         }
 
         .hero-image {
@@ -159,7 +166,11 @@
             height: 100%;
         }
 
-/*  Adjust for Tablet   */
+        #day-at-gallery {
+            width: 100%;
+            margin-top: 2rem;
+            grid-area: dag;
+        }
 
         #image-grid-1 {
             background-image: url( '../assets/tablet/image-grid-1@2x.jpg' );
@@ -176,24 +187,73 @@
         #image-grid-3 {
             background-image: url( '../assets/tablet/image-grid-3.jpg' );
             background-position: top;
+            width: var( --img-text-width );
+            height: 313px;
             grid-area: img-3;
         }
 
+        #come-be-inspired {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            grid-area: cbi;
+            background-color: var( --almost-black );
+            width: var( --img-text-width );
+            height: 100%;
+            color: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-flex-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-main-body {
+            width: 40%;
+        }
+
+    }
+
+    @media screen and ( min-width: 1440px ) {
+
+        :root {
+            --grid-width: 1024px;
+        }
+
+        main {
+            width: 1110px;
+            max-width: var( --break-width-largest );
+        }
+
         #day-at-gallery {
-            width: 100%;
-            grid-area: dag;
+            width: 350px;
+            height: 280px;
+            align-self: center;
+        }
+
+        #image-grid-1 {
+            background-image: url( '../assets/desktop/image-grid-1@2x.jpg' );
+            background-position: right;
+        }
+
+        #image-grid-2 {
+            background-image: url( '../assets/desktop/image-grid-2.jpg' );
+            width: 635px;
+            height: 720px;
+        }
+
+        #image-grid-3 {
+            background-image: url( '../assets/desktop/image-grid-3.jpg' );
+            width: 445px;
+            height: 313px;
         }
 
         #come-be-inspired {
-            width: 100%;
-            grid-area: cbi;
-            background-color: var( --almost-black );
-            color: white;
-            padding: 2rem;
+            width: 445px;
         }
-    }
-
-    @media screen and ( min-width: 1024px ) {
 
         .desktop-background {
             position: relative;
@@ -214,7 +274,7 @@
         }
 
         .sizing-of-elements {
-            width: var(--break-width-desktop);
+            width: var(--break-width-largest);
         }
 
         .hero-image {
